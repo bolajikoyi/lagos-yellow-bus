@@ -1,7 +1,7 @@
 const { Kafka } = require('kafkajs')
 const express = require('express')
 const app = express()
-const producer = require('./producer')
+// const producer = require('./producer')
 
 const server = require('http').createServer();
 const io = require('socket.io')(server, {
@@ -24,7 +24,7 @@ io.on('connection', (socket) => {
         const consumer = kafka.consumer({ groupId: 'test-group' })
     
           await consumer.connect()
-          await consumer.subscribe({ topic: 'train_position', fromBeginning: true })
+          await consumer.subscribe({ topic: 'yellow_bus', fromBeginning: true })
           await consumer.run({
             eachMessage: async ({ topic, partition, message }) => {
                   console.log(
@@ -42,5 +42,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(3600, () => {
-    console.log('listening on *:3500');
+    console.log('listening on *:3600');
   });

@@ -1,0 +1,84 @@
+.sidebar {
+    background-color: white;
+    opacity: 0.85;
+    color: black;
+    padding: 6px 12px;
+    z-index: 1;
+    position: absolute;
+    margin: 1rem;
+    border-radius: 8px;
+  }
+  .mapStyle{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 1.3rem;
+      z-index: 1;
+      background-color: white;
+      opacity: 0.85;
+      border-radius: 10px;
+      color: black;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      width: 65px;
+  }
+  .mapStyle button{
+      border: none;
+      background-color: white;
+      opacity: 0.85;
+      padding: 3px 0;
+      text-align: right;
+      font-size: 14px;
+  }
+button.active
+{
+    font-weight: bold;
+}
+button:hover
+{
+    background-color: rgba(0, 0, 0, 0.09);
+}
+
+.mapStyle button:nth-of-type(2n){
+    border-bottom: 1px solid black;
+}
+.mapStyle button:nth-of-type(2n+1){
+    border-bottom: 1px solid black;
+}
+.mapStyle button:last-child{
+    border-bottom: none;
+}
+.dashBoard{
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    position: absolute;
+    margin: 1rem;
+    background-color: white;
+    opacity: 0.85;
+    z-index: 1;
+    right: 0;
+}
+.mapStyle-icon{
+    position: absolute;
+      bottom: 5px;
+      right: 0;
+      margin: 1.3rem;
+      z-index: 1;
+      background-color: white;
+      opacity: 0.85;
+      padding: 3px;
+      border-radius: 5px;
+      cursor: pointer;
+}
+.cluster-marker {
+    color: #fff;
+    background: #1978c8;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

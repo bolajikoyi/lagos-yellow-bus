@@ -13,7 +13,7 @@ const main = async (val)=>{
 
     await producer.connect()
     await producer.send({
-      topic: 'Users',
+      topic: 'yellow_bus',
       messages: [
         { value:  val},
       ],
