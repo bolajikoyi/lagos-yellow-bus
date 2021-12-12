@@ -21,16 +21,16 @@ io.on('connection', (socket) => {
         })
         
       
-        const consumer = kafka.consumer({ groupId: 'test-group' })
+        const consumer = kafka.consumer({ groupId: 'bus-ride' })
     
           await consumer.connect()
-          await consumer.subscribe({ topic: 'yellow_bus', fromBeginning: true })
+          await consumer.subscribe({ topic: 'yellow-bus', fromBeginning: true })
           await consumer.run({
             eachMessage: async ({ topic, partition, message }) => {
                   console.log(
                   message.value.toString(),
                   )
-                socket.emit('newMessage', message.value.toString())
+                socket.emit('busData', message.value.toString())
             },
           })
     }

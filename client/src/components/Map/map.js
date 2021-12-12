@@ -11,7 +11,6 @@ const Map = ()=>{
     const [mapStyle, setMapStyle] = useState(MAPBOX_STYLES['Satellite'])
     const [mapStyleIcon, showMapStyle] = useState(false)
     const [showPopup, togglePopup] = useState(false);
-    const [popup, setPopup] = useState(false);
 
     // position setting for navigation control
     const navControlStyle = {
@@ -23,14 +22,14 @@ const Map = ()=>{
       useEffect(() => {
         const socket = socketIOClient('http://localhost:3600')
 
-        socket.on('newMessage', data => {
+        socket.on('busData', data => {
             let newData = JSON.parse(data)
             console.log(newData)
 
                 setViewport({
                     ...viewport,
-                    longitude: newData.geometry.coordinates[1],
-                    latitude: newData.geometry.coordinates[0]
+                    longitude: newData[0],
+                    latitude: newData[1]
                 })
         })
         
@@ -46,7 +45,20 @@ const Map = ()=>{
                 {viewport.latitude.toFixed(4)}| Zoom: {viewport.zoom.toFixed(2)}
             </div>
             <div className='dashBoard'>
-                <h4>Lagos Yellow Bus</h4>
+                <h4>Lagos Yellow Bus <i className="fas fa-bus-alt" style={{color: '#ffb703'}}></i></h4>
+                <div>
+                    <span><i class="fas fa-circle"></i></span>
+                    <span>Ojota</span>
+                    <span><i class="fas fa-arrow-right"></i></span>
+                    <span><i class="fas fa-circle"></i></span>
+                    <span>Surulere</span>
+                    <span><i class="fas fa-arrow-right"></i></span>
+                    <span><i class="fas fa-circle"></i></span>
+                    <span>Onikan</span>
+                    <span><i class="fas fa-arrow-right"></i></span>
+                    <span><i class="fas fa-circle"></i></span>
+                    <span>Oworonshoki</span>
+                </div>
             </div>
             <div>{!mapStyleIcon? 
                 <div className='mapStyle-icon' onClick={()=> showMapStyle(true)}><i className="fas fa-folder-open" style={{fontSize:'24px'}}></i></div>:
@@ -84,7 +96,7 @@ const Map = ()=>{
                 <div className='train-marker' onClick={()=>{
                     togglePopup((val)=> !val)
                     }}>
-                    <i className="fas fa-bus-alt fa-2x" style={{color: 'yellow', cursor:'pointer'}}></i>
+                    <i className="fas fa-bus-alt fa-2x" style={{color: '#ffb703', cursor:'pointer'}}></i>
                 </div>
                 </Marker>
                  {showPopup && <Popup 

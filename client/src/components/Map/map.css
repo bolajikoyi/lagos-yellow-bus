@@ -51,8 +51,8 @@ button:hover
     border-bottom: none;
 }
 .dashBoard{
-    width: 300px;
-    height: 200px;
+    /* width: 300px; */
+    height: 100px;
     border-radius: 10px;
     position: absolute;
     margin: 1rem;
@@ -60,6 +60,7 @@ button:hover
     opacity: 0.85;
     z-index: 1;
     right: 0;
+    padding: 0 5px;
 }
 .mapStyle-icon{
     position: absolute;
@@ -81,4 +82,9 @@ button:hover
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+i.fa-circle{
+    color: #ffb703;
+    padding: 0 5px;
 }

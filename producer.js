@@ -13,7 +13,7 @@ const main = async (val)=>{
 
     await producer.connect()
     await producer.send({
-      topic: 'yellow_bus',
+      topic: 'yellow-bus',
       messages: [
         { value:  val},
       ],
@@ -46,4 +46,15 @@ let index = 0;
     index++    
     
   }, 500)
+//   Iteration is not repeated
+// var Arr = data.features[0].geometry.coordinates;
+// var alertLoop = function(i) {
+//     if (Arr[i]) {
+//         let newData = JSON.stringify(Arr[i])
+//         main(newData);
+//         console.log(Arr[i])
+//         setTimeout(function(){alertLoop(i+1);}, 500);
+//     }
+// }
+// alertLoop(0);
 
