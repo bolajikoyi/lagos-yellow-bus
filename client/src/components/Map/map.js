@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
-import ReactMapGL, {Marker, NavigationControl, FlyToInterpolator, Popup} from 'react-map-gl';
+import React, { useState, useEffect } from 'react';
+import ReactMapGL, {Marker, NavigationControl, Popup} from 'react-map-gl';
 import './map.css';
 import { DEFAULT_VIEWPORT, MAPBOX_STYLES } from './constants';
 import socketIOClient from "socket.io-client";
 
 
 const Map = ()=>{
-
+    //states
     const [viewport, setViewport] = useState(DEFAULT_VIEWPORT)
     const [mapStyle, setMapStyle] = useState(MAPBOX_STYLES['Satellite'])
     const [mapStyleIcon, showMapStyle] = useState(false)
@@ -18,7 +18,7 @@ const Map = ()=>{
         margin: '1.3rem',
         opacity: 0.85,
       };
-
+      //Here we connect to the server
       useEffect(() => {
         const socket = socketIOClient('http://localhost:3600')
 
@@ -38,6 +38,7 @@ const Map = ()=>{
         }
     },[])
 
+    // This is where we return the html of Map component
     return(
         <div>
             <div className="sidebar">
@@ -79,9 +80,10 @@ const Map = ()=>{
                     )
                     })
                 }
-            </div>
+                </div>
             }</div>
 
+            {/* The map is added here */}
             <ReactMapGL 
             {...viewport}
             mapStyle= {mapStyle}
@@ -92,13 +94,16 @@ const Map = ()=>{
               width='100vw'
               height='100vh'
             >
-                <Marker key={Math.random()} longitude={viewport.longitude} latitude={viewport.latitude} draggable={true}>
+                {/*  */}
+                <Marker key={1} longitude={viewport.longitude} latitude={viewport.latitude} draggable={true}>
                 <div className='train-marker' onClick={()=>{
                     togglePopup((val)=> !val)
                     }}>
                     <i className="fas fa-bus-alt fa-2x" style={{color: '#ffb703', cursor:'pointer'}}></i>
                 </div>
                 </Marker>
+
+                {/* The marker popup is added here */}
                  {showPopup && <Popup 
                     longitude={viewport.longitude} 
                     latitude={viewport.latitude}
