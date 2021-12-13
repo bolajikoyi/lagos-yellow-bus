@@ -1,7 +1,6 @@
 const { Kafka } = require('kafkajs')
 const express = require('express')
 const app = express()
-// const producer = require('./producer')
 
 const server = require('http').createServer();
 const io = require('socket.io')(server, {
@@ -42,5 +41,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(3600, () => {
-    console.log('listening on *:3600');
+    console.log('Server listening on localhost:3600');
   });
