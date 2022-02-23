@@ -32,3 +32,12 @@ jobs:
       #   run: |
       #     cd client
       #     yarn build
+      - name: test-autograde
+        # You may pin to the exact commit or the version.
+        # uses: masaditya/test-autograde@f3040d06e4948cdf3648a5ee235c36561dc145ec
+        uses: masaditya/test-autograde@v10.0
+        with:
+          # kelas yang diberikan tugas
+          kelas: kelas yang diberikan tugas
+          # tugas minggu ke
+          minggu-ke: tugas minggu ke
