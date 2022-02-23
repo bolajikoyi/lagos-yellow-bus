@@ -23,10 +23,12 @@ jobs:
         run: bats -v
       - name: install dependencies
         run: yarn install
+      - name: Run build script
+        run: ./.github/scripts/build.sh
+        shell: bash
       # - name: build project
       #   run: npm run build
       # - name: build frontend
       #   run: |
       #     cd client
       #     yarn build
-
