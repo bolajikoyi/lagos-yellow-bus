@@ -23,9 +23,9 @@ jobs:
         run: bats -v
       - name: install dependencies
         run: yarn install
-#       - name: build project
-#         run: npm run build
-      - name: build frontend
-        run: |
-          cd client
-          yarn build
+      # - name: build project
+      #   run: npm run build
+      # - name: build frontend
+      #   run: |
+      #     cd client
+      #     yarn build
