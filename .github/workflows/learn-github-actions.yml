@@ -29,7 +29,4 @@ jobs:
       #   run: |
       #     cd client
       #     yarn build
-      - name: Trigger CircleCI Pipeline
-        # You may pin to the exact commit or the version.
-        # uses: CircleCI-Public/trigger-circleci-pipeline-action@21a9dd0f0ab137ed19dbf40f1e4faf634660e6ea
-        uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.3
+
